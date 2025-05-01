@@ -1,6 +1,5 @@
 using BlazorWebAppMovies.Components;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using BlazorWebAppMovies.Data;
 
 var builder = WebApplication.CreateBuilder(args);
