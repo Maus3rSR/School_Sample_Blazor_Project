@@ -4,9 +4,6 @@
 
 [Blazor pour .NET 9](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/?view=aspnetcore-9.0)
 
-[DbContext: utilisation](https://learn.microsoft.com/fr-fr/ef/ef6/fundamentals/working-with-dbcontext)\
-[DbContext c'est quoi ?](https://dotnettutorials.net/lesson/dbcontext-entity-framework-core/)
-
 ## Création d'un nouveau projet Blazor (CLI)
 
 ```bash
@@ -34,9 +31,12 @@ dotnet tool install --global dotnet-aspnet-codegenerator --allow-roll-forward # 
 dotnet tool install --global Microsoft.dotnet-scaffold
 ```
 
-## Génération CRUD
+## Génération d'interfaces CRUD (Create Read Update Delete)
 
-### Installation des packages pour du Scaffolding
+**Note :**
+Vous pouvez utiliser l'interface contextuelle de l'explorateur de solution à partir d'un clic droit sur le projet : "Ajouter > Nouvel élément généré automatiquement" ou via CLI.
+
+### Installation des packages nécéssaires pour générer du CRUD
 
 Vous pouvez mettre ceci dans un script bash et le lancer.
 
@@ -48,7 +48,7 @@ Vous pouvez mettre ceci dans un script bash et le lancer.
 # Package pour génération de code pour le web avec aspnet-codegenerator
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
-# Packages NuGet des fournisseurs de base de données
+# Packages NuGet des fournisseurs de base de données (vous pouvez un installer ou plusieurs au choix)
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
@@ -56,10 +56,12 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 # pour utiliser la méthode d'extension AddDatabaseDeveloperPageExceptionFilter dans le fichier Programme, qui capture les exceptions liées à la base de données.
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 
-# Packages pour componsant Blazor de table de données "clé en main" + Adapteur à EntityFramework
+# Détection et diagnostic des erreurs de migrations
+dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+
+# Packages pour componsants Blazor de table de données "clé en main" + Adapteur à EntityFramework du QuickGrid
 dotnet add package Microsoft.AspNetCore.Components.QuickGrid
 dotnet add package Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter
-dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
 ```
 
 ### Générer des interfaces CRUD
@@ -73,6 +75,16 @@ Commande pour générer un CRUD (Create Read Update Delete) classique
 # -outDir le chemin où seront placés les composants Blazor de CRUD
 dotnet aspnet-codegenerator blazor CRUD -dbProvider sqlite -dc BlazorWebApp.Data.DbContext -m Movie -outDir Components/Pages
 ```
+
+## EntityFramework Core
+
+**Trigger Warning** Documentation sur EntityFramework Core et non Entity Framework 6 (obsolète) !
+
+[DbContext c'est quoi ?](https://dotnettutorials.net/lesson/dbcontext-entity-framework-core/)
+[DbContext: Récupérer des données](https://learn.microsoft.com/en-us/ef/core/querying/)
+[DbContext: Sauvegarde des données](https://learn.microsoft.com/en-us/ef/core/saving/)]
+[Relation dans les base de données](https://learn.microsoft.com/en-us/ef/core/modeling/relationships)
+[DbContext: Charger des données liées](https://learn.microsoft.com/en-us/ef/core/querying/related-data/)
 
 ## Migration base de données
 
@@ -118,6 +130,7 @@ ou avec dotnet aspnet-code-generator
 ```bash
 # Ajout du package NuGet
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+# ou identity dans le cas de MVC
 aspnet-code-generator blazor-identity
 ```
 
@@ -135,6 +148,6 @@ Générer certains fichiers d'UI Identity
 
 ```bash
 # -dc la classe DbContext à générer, le DbContext sert de pont entre l'entité (classe qui représente les données de la base) et la base de données
-# --files listes des fichiers à générer
+# --files listes des fichiers à générer séparé par des espaces
 dotnet aspnet-codegenerator identity -dc BlazorWebApp.Data.DbContext --files "Account.Register"
 ```
