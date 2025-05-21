@@ -74,9 +74,18 @@ Commande pour générer un CRUD (Create Read Update Delete) classique
 dotnet aspnet-codegenerator blazor CRUD -dbProvider sqlite -dc BlazorWebApp.Data.DbContext -m Movie -outDir Components/Pages
 ```
 
-### Migration base de données
+## Migration base de données
 
-Pour créer une migration avec EntityFramework
+### Principe du système de migration de EF Core
+
+Approche "code-first" : on écrit le code de la base de données dans le code C# et on génère la base de données à partir de ce code.
+Objectif: Gain de temps sur la gestion base de données en laissant à EF Core le soin de gérer les migrations.
+
+### Utilisation
+
+Ajouter une migration va générer un fichier de migration dans le dossier Migrations.
+Ce fichier contient les instructions pour créer la base de données et les tables à partir de la définition des classes qui étendent de `DbContext`.
+Pour créer une migration avec EntityFramework :
 
 ```bash
 # InitialCreate est le nom de la migration
