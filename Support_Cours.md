@@ -80,11 +80,13 @@ dotnet aspnet-codegenerator blazor CRUD -dbProvider sqlite -dc BlazorWebApp.Data
 
 **Trigger Warning** Documentation sur EntityFramework Core et non Entity Framework 6 (obsolète) !
 
+[EF CLI documentation](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
+
 [DbContext c'est quoi ?](https://dotnettutorials.net/lesson/dbcontext-entity-framework-core/)
-[DbContext: Récupérer des données](https://learn.microsoft.com/en-us/ef/core/querying/)
-[DbContext: Sauvegarde des données](https://learn.microsoft.com/en-us/ef/core/saving/)]
+[Récupérer des données](https://learn.microsoft.com/en-us/ef/core/querying/)
+[Sauvegarde des données](https://learn.microsoft.com/en-us/ef/core/saving/)]
 [Relation dans les base de données](https://learn.microsoft.com/en-us/ef/core/modeling/relationships)
-[DbContext: Charger des données liées](https://learn.microsoft.com/en-us/ef/core/querying/related-data/)
+[Charger des données liées](https://learn.microsoft.com/en-us/ef/core/querying/related-data/)
 
 ## Migration base de données
 
@@ -116,16 +118,21 @@ Puis pour appliquer les migrations sur la base de données
 dotnet ef database update
 ```
 
-## Sécurité & Identity
+## Sécurité
 
 **Trigger Warning:** Ne jamais mettre de secrets dans le `appsettings.json` ou dans le code en dur ! Vous aller versionner des informations qui seront de-facto compromises.
 Exemple de secrets : connectionString, API Key, Secret Key, Password, Tokens, etc.
 [Gérer ses secrets de manière plus sécurisée](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-9.0&tabs=windows#access-a-secret)
 
+## Identity
+
+[Comprendre le modèle de données Identité](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-9.0#the-identity-model)
+
 ### Génération des fichiers Identity nécéssaires en CLI
 
 **Note :**
-Vous pouvez utiliser l'interface contextuelle de l'explorateur de solution à partir d'un clic droit sur le projet : "Ajouter > Nouvel élément généré automatiquement" ou via CLI.
+- Vous pouvez utiliser l'interface contextuelle de l'explorateur de solution à partir d'un clic droit sur le projet : "Ajouter > Nouvel élément généré automatiquement" ou via CLI.
+- Si vous n'avez pas générer les fichiers Identity à la création du projet et que vous souhaitez garder un seul fichier de `DbContext`, il faudra le modifier pour l'étendre avec `IdentityDbContext`.
 
 ```bash
 # Lancer la commande et se laisser guider par les étapes (choisir Identity)
