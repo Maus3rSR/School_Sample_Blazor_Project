@@ -168,3 +168,31 @@ Générer certains fichiers d'UI Identity
 # --files listes des fichiers à générer séparé par des espaces
 dotnet aspnet-codegenerator identity -dc BlazorWebApp.Data.DbContext --files "Account.Register"
 ```
+
+### Override du modèle de données IdentityUser
+
+[Ajouter des données supplémentaires au modèle de donnée Identity](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-9.0#customize-the-model)
+
+Attributs supplémentaires possibles à ajouter au modèle :
+- `[PersonalData]`: Indique que la propriété est une donnée personnelle et doit être supprimable/exportable (RGPD)
+- `[ProtectedPersonalData]`: Indique que la propriété est une donnée personnelle et est cryptée (à vérifier dans le framework, aucune documentation précise trouvée à ce sujet)
+
+### Authentification
+
+[Authentification requise pour tous les écrans](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/secure-data?view=aspnetcore-9.0#require-authenticated-users)
+
+### Autorisation
+
+[Convention des autorisations pour les pages Razor](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/razor-pages-authorization?view=aspnetcore-9.0)
+
+[Autorisation basée sur les Rôles](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-9.0)
+[Autorisation basée sur les Revendications](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/claims?view=aspnetcore-9.0)
+[Autorisation basée sur les Ressources (propriété de données)](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?view=aspnetcore-9.0)
+
+[Composant et Attributs d'autorisation pour Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0&tabs=visual-studio#authorization)
+
+[Politique d'autorisation](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-9.0)
+
+### Divers
+
+[Debug email](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-9.0&tabs=visual-studio#debug-email)
