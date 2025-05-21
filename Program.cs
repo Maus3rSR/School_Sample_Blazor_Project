@@ -1,17 +1,36 @@
-using BlazorWebAppMovies.Components;
+﻿using BlazorWebAppMovies.Components;
 using Microsoft.EntityFrameworkCore;
 using BlazorWebAppMovies.Data;
+using BlazorWebAppMovies.Components.Account;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services
-    .AddDbContextFactory<BlazorWebAppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("MoviesDbContext") ?? throw new InvalidOperationException("Connection string 'MoviesDbContext' not found.")))
-    .AddDatabaseDeveloperPageExceptionFilter()
-    .AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddDbContextFactory<BlazorWebAppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("MoviesDbContext") ?? throw new InvalidOperationException("Connection string 'MoviesDbContext' not found.")));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddQuickGridEntityFrameworkAdapter();
+
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped<IdentityUserAccessor>();
+builder.Services.AddScoped<IdentityRedirectManager>();
+builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = IdentityConstants.ApplicationScheme;
+        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+    })
+    .AddIdentityCookies();
+
+builder.Services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<BlazorWebAppDbContext>()
+    .AddSignInManager()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddSingleton<IEmailSender<IdentityUser>, IdentityNoOpEmailSender>();
 
 var app = builder.Build();
 
@@ -30,7 +49,7 @@ app.UseStatusCodePagesWithReExecute("/{0}");
 app.UseAntiforgery();
 
 app.MapStaticAssets();
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+app.MapAdditionalIdentityEndpoints(); ;
 
 app.Run();
