@@ -193,6 +193,7 @@ Attributs supplémentaires possibles à ajouter au modèle :
 
 [Politique d'autorisation](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-9.0)
 
-### Divers
+### Emails (confirmation de compte & récupération de mot de passe)
 
+[Configuration des emails](https://learn.microsoft.com/fr-fr/aspnet/core/security/authentication/accconfirm?view=aspnetcore-9.0&tabs=visual-studio)
 [Debug email](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-9.0&tabs=visual-studio#debug-email)
