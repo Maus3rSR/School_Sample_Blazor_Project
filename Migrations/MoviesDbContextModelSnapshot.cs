@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlazorWebAppMovies.Migrations
 {
-    [DbContext(typeof(MoviesDbContext))]
+    [DbContext(typeof(BlazorWebAppDbContext))]
     partial class MoviesDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

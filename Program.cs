@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-    .AddDbContextFactory<MoviesDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("MoviesDbContext") ?? throw new InvalidOperationException("Connection string 'MoviesDbContext' not found.")))
+    .AddDbContextFactory<BlazorWebAppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("MoviesDbContext") ?? throw new InvalidOperationException("Connection string 'MoviesDbContext' not found.")))
     .AddDatabaseDeveloperPageExceptionFilter()
     .AddRazorComponents()
     .AddInteractiveServerComponents();

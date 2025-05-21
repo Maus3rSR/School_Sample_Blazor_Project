@@ -4,7 +4,7 @@
 @using BlazorWebAppMovies.Models
 @using BlazorWebAppMovies.Data
 @implements IAsyncDisposable
-@inject IDbContextFactory<BlazorWebAppMovies.Data.MoviesDbContext> DbFactory
+@inject IDbContextFactory<BlazorWebAppMovies.Data.BlazorWebAppDbContext> DbFactory
 
 <PageTitle>Index</PageTitle>
 
@@ -28,7 +28,7 @@
 </QuickGrid>
 
 @code {
-    private MoviesDbContext context = default!;
+    private BlazorWebAppDbContext context = default!;
 
     protected override void OnInitialized()
     {
