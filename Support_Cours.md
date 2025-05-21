@@ -95,6 +95,9 @@ dotnet aspnet-codegenerator blazor CRUD -dbProvider sqlite -dc BlazorWebApp.Data
 Approche "code-first" : on écrit le code de la base de données dans le code C# et on génère la base de données à partir de ce code.
 Objectif: Gain de temps sur la gestion base de données en laissant à EF Core le soin de gérer les migrations.
 
+[Comprendre Migrations, Snapshots et Synchronisation](https://ardalis.com/entity-framework-core-understanding-migrations-snapshots-synchronization/)
+[Schéma de séquence lors d'une migration](https://ardalis.com/img/ef-core-migrations-sequence.png)
+
 ### Utilisation
 
 Ajouter une migration va générer un fichier de migration dans le dossier Migrations.
