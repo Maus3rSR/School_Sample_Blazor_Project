@@ -116,9 +116,16 @@ Puis pour appliquer les migrations sur la base de données
 dotnet ef database update
 ```
 
-## Identity
+## Sécurité & Identity
 
-### Génération des fichiers nécéssaires en CLI
+**Trigger Warning:** Ne jamais mettre de secrets dans le `appsettings.json` ou dans le code en dur ! Vous aller versionner des informations qui seront de-facto compromises.
+Exemple de secrets : connectionString, API Key, Secret Key, Password, Tokens, etc.
+[Gérer ses secrets de manière plus sécurisée](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-9.0&tabs=windows#access-a-secret)
+
+### Génération des fichiers Identity nécéssaires en CLI
+
+**Note :**
+Vous pouvez utiliser l'interface contextuelle de l'explorateur de solution à partir d'un clic droit sur le projet : "Ajouter > Nouvel élément généré automatiquement" ou via CLI.
 
 ```bash
 # Lancer la commande et se laisser guider par les étapes (choisir Identity)
@@ -134,7 +141,7 @@ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 aspnet-code-generator blazor-identity
 ```
 
-### Override de l'UI
+### Override de l'UI d'Identity
 
 https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-9.0&tabs=visual-studio#full
 
