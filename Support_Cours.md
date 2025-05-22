@@ -189,7 +189,10 @@ Attributs supplémentaires possibles à ajouter au modèle :
 
 [Autorisation basée sur les Rôles](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-9.0)
 [Autorisation basée sur les Revendications](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/claims?view=aspnetcore-9.0)
+[Autorisation basée sur les Politiques](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-9.0)
 [Autorisation basée sur les Ressources (propriété de données)](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?view=aspnetcore-9.0)
+
+[Différence Rôle/Revendication/Politique](https://abdelmajid-baco.medium.com/exploring-roles-claims-and-policies-in-application-security-519f4e8eb5e2)
 
 [Utilisation des autorisations pour les pages Razor](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/razor-pages-authorization?view=aspnetcore-9.0)
 [Utilisation des autorisations pour les composants Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0&tabs=visual-studio#authorization)
