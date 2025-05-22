@@ -121,6 +121,12 @@ Puis pour appliquer les migrations sur la base de données
 dotnet ef database update
 ```
 
+Pour revenir à une migration précédente
+
+```bash
+dotnet ef database update NOM_MIGRATION_CIBLE
+```
+
 ### Seeding (amorçage de données)
 
 [Initialiser avec des données](https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding)
