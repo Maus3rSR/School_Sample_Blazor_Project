@@ -121,6 +121,10 @@ Puis pour appliquer les migrations sur la base de données
 dotnet ef database update
 ```
 
+### Seeding (amorçage de données)
+
+[Initialiser avec des données](https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding)
+
 ## Sécurité
 
 **Trigger Warning:** Ne jamais mettre de secrets dans le `appsettings.json` ou dans le code en dur ! Vous aller versionner des informations qui seront de-facto compromises.
@@ -183,13 +187,12 @@ Attributs supplémentaires possibles à ajouter au modèle :
 
 ### Autorisation
 
-[Convention des autorisations pour les pages Razor](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/razor-pages-authorization?view=aspnetcore-9.0)
-
 [Autorisation basée sur les Rôles](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-9.0)
 [Autorisation basée sur les Revendications](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/claims?view=aspnetcore-9.0)
 [Autorisation basée sur les Ressources (propriété de données)](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?view=aspnetcore-9.0)
 
-[Composant et Attributs d'autorisation pour Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0&tabs=visual-studio#authorization)
+[Utilisation des autorisations pour les pages Razor](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/razor-pages-authorization?view=aspnetcore-9.0)
+[Utilisation des autorisations pour les composants Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0&tabs=visual-studio#authorization)
 
 [Politique d'autorisation](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-9.0)
 
@@ -197,3 +200,8 @@ Attributs supplémentaires possibles à ajouter au modèle :
 
 [Configuration des emails](https://learn.microsoft.com/fr-fr/aspnet/core/security/authentication/accconfirm?view=aspnetcore-9.0&tabs=visual-studio)
 [Debug email](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-9.0&tabs=visual-studio#debug-email)
+
+## Divers
+
+[Configuration](https://learn.microsoft.com/fr-fr/aspnet/core/fundamentals/configuration/?view=aspnetcore-9.0)
+[Injection de dépendances](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
